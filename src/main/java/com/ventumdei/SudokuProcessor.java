@@ -2,10 +2,11 @@ package com.ventumdei;
 
 import java.util.Scanner;
 
+import static com.ventumdei.BoardConstants.SIZE;
+
 public class SudokuProcessor {
     private GamePreparator preparator = new GamePreparator();
-    private Validator validator;
-
+    private int[][] puzzles = new int[SIZE][SIZE];
     private Scanner scanner = new Scanner(System.in);
 
     void process() {
@@ -17,6 +18,26 @@ public class SudokuProcessor {
 
         int level = scanner.nextInt();
 
+        switch (level) {
+            case 1:
+                System.out.println("You have chosen level EASY: ");
+                puzzles = preparator.boardPreparator(Difficulty.EASY);
+                preparator.BoardDisplay(puzzles);
+                break;
+            case 2:
+                System.out.println("You have chosen level MEDIUM: ");
+                puzzles = preparator.boardPreparator(Difficulty.MEDIUM);
+                preparator.BoardDisplay(puzzles);
+                break;
+            case 3:
+                System.out.println("You have chosen level HARD: ");
+                puzzles = preparator.boardPreparator(Difficulty.HARD);
+                preparator.BoardDisplay(puzzles);
+                break;
+        }
+    }
 
+    public int[][] getPuzzles() {
+        return puzzles;
     }
 }

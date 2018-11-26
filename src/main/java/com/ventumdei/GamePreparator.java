@@ -2,20 +2,32 @@ package com.ventumdei;
 
 import java.util.Random;
 
-import static com.ventumdei.BoardConstants.EMPTY_BOARD;
 import static com.ventumdei.BoardConstants.SIZE;
 
 class GamePreparator {
-    private Solver solver = new Solver(EMPTY_BOARD);
+    //    private Solver solver = new Solver(EMPTY_BOARD);
     private Random random = new Random();
+    private SudokuBoardMixer mixer = new SudokuBoardMixer();
 
 
     private int[][] boardToBeSolved;
 
 
     int[][] boardPreparator(Difficulty difficulty) {
+        /*
+        TODO replace with outcome sudoku board from SudokuBoardMixer
         solver.solveBoard();
         boardToBeSolved = solver.getBoard();
+        */
+
+        mixer.shuffle();
+
+        //Test printing
+        mixer.showGrid();
+        System.out.println("==========================");
+
+
+        boardToBeSolved = mixer.getFinalGrid();
         int numberOfCells = 0;
 
         while (numberOfCells < difficulty.getNumVal()) {
@@ -30,17 +42,10 @@ class GamePreparator {
     }
 
     void BoardDisplay(int[][] boardToBeSolved) {
-        for (int i = 0; i < SIZE; ++i) {
-            if (i % 3 == 0) {
-                System.out.println(" ");
-            }
-            for (int j = 0; j < SIZE; ++j) {
-                if (j % 3 == 0) {
-                    System.out.print(" ");
-                }
-                System.out.print(boardToBeSolved[i][j] + " ");
-            }
-            System.out.println(" ");
-        }
+        GameRunner.dispalyer(boardToBeSolved);
+    }
+
+    public int[][] getBoardToBeSolved() {
+        return boardToBeSolved;
     }
 }

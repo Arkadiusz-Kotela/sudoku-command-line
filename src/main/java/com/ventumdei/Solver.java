@@ -16,8 +16,7 @@ class Solver {
 
     void solveBoard() {
         if (solve(0, 0)) {
-            //TODO implement method considering two cases
-            System.out.println("====Your Sudoku board====");
+            printSolution();
         } else {
             System.out.println("No solution");
         }

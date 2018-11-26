@@ -3,9 +3,14 @@ package com.ventumdei;
 public class Sudoku {
 
     public static void main(String[] args) {
-        GamePreparator preparator = new GamePreparator();
+//        SudokuBoardMixer sbm = new SudokuBoardMixer();
+//
+//        sbm.shuffle();
 
+    GamePreparator preparator = new GamePreparator();
 
-        preparator.BoardDisplay(preparator.boardPreparator(Difficulty.HARD));
+    preparator.boardPreparator(Difficulty.HARD);
+    preparator.BoardDisplay(preparator.getBoardToBeSolved());
+
     }
 }
