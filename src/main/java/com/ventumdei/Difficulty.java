@@ -1,9 +1,9 @@
 package com.ventumdei;
 
 public enum Difficulty {
-    EASY(28),
-    MEDIUM(37),
-    HARD(46);
+    EASY(1),
+    MEDIUM(55),
+    HARD(60);
 
     private int numVal;
 

@@ -18,21 +18,22 @@ public class SudokuProcessor {
 
         int level = scanner.nextInt();
 
+
         switch (level) {
             case 1:
                 System.out.println("You have chosen level EASY: ");
                 puzzles = preparator.boardPreparator(Difficulty.EASY);
-                preparator.BoardDisplay(puzzles);
+//                BoardPrinter.showBoard(puzzles);
                 break;
             case 2:
                 System.out.println("You have chosen level MEDIUM: ");
                 puzzles = preparator.boardPreparator(Difficulty.MEDIUM);
-                preparator.BoardDisplay(puzzles);
+//                BoardPrinter.showBoard(puzzles);
                 break;
             case 3:
                 System.out.println("You have chosen level HARD: ");
                 puzzles = preparator.boardPreparator(Difficulty.HARD);
-                preparator.BoardDisplay(puzzles);
+//                BoardPrinter.showBoard(puzzles);
                 break;
         }
     }

@@ -3,8 +3,10 @@ package com.ventumdei;
 import static com.ventumdei.BoardConstants.*;
 
 class Solver {
-
     private int[][] board;
+
+    public Solver() {
+    }
 
     Solver(int[][] board) {
         this.board = board;
@@ -14,18 +16,13 @@ class Solver {
         return board;
     }
 
-    void solveBoard() {
+    boolean solveBoard() {
         if (solve(0, 0)) {
-            printSolution();
+            return true;
         } else {
-            System.out.println("No solution");
+            return false;
         }
     }
-
-    private void printSolution() {
-        System.out.println("Nice");
-    }
-
 
     boolean solve(int rowIndex, int columnIndex) {
         if (rowIndex == SIZE && ++columnIndex == SIZE) return true;
@@ -41,11 +38,9 @@ class Solver {
         for (int number = MIN_CELL_VAL; number <= MAX_CELL_VAL; number++) {
             if (valid(rowIndex, columnIndex, number)) {
                 board[rowIndex][columnIndex] = number;
-
                 if (solve(rowIndex + 1, columnIndex)) {
                     return true;
                 }
-
                 //BACKTRACK
                 board[rowIndex][columnIndex] = 0;
             }

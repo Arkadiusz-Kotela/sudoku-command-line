@@ -14,20 +14,13 @@ class GamePreparator {
 
 
     int[][] boardPreparator(Difficulty difficulty) {
-        /*
-        TODO replace with outcome sudoku board from SudokuBoardMixer
-        solver.solveBoard();
-        boardToBeSolved = solver.getBoard();
-        */
-
         mixer.shuffle();
 
-        //Test printing
-        mixer.showGrid();
-        System.out.println("==========================");
+        System.out.println("=======================");
 
-
+        //Getting final grid to be strike out as per difficulty level
         boardToBeSolved = mixer.getFinalGrid();
+
         int numberOfCells = 0;
 
         while (numberOfCells < difficulty.getNumVal()) {
@@ -39,10 +32,6 @@ class GamePreparator {
             }
         }
         return boardToBeSolved;
-    }
-
-    void BoardDisplay(int[][] boardToBeSolved) {
-        GameRunner.dispalyer(boardToBeSolved);
     }
 
     public int[][] getBoardToBeSolved() {
