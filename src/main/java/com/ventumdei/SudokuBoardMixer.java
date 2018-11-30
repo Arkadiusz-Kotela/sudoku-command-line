@@ -7,7 +7,7 @@ class SudokuBoardMixer {
     private Solver solver = new Solver(EMPTY_BOARD);
     private int[][] finalGrid = new int[SIZE][SIZE];
 
-    public int[][] getFinalGrid() {
+    int[][] getFinalGrid() {
         return finalGrid;
     }
 
@@ -17,7 +17,7 @@ class SudokuBoardMixer {
         mixedBoard = solver.getBoard();
 
         //Swapping to rows in the same group - indexes 0-2, 3-5, 6-8
-        for (int i = 0; i < SIZE / 3; i++) {
+        for (int i = 0; i < SIZE / 3; ++i) {
             for (int j = 0; j < 9; j += 3) {
                 int temp = mixedBoard[2][i+j];
                 mixedBoard[2][i+j] = mixedBoard[0][i+j];
@@ -29,7 +29,7 @@ class SudokuBoardMixer {
         temp1.solveBoard();
 
         //Swapping to columns in the same group - indexes 0-2, 3-5, 6-8
-        for (int i = 0; i < SIZE / 3; i++) {
+        for (int i = 0; i < SIZE / 3; ++i) {
             for (int j = 0; j < 9; j += 3) {
                 int temp = mixedBoard[i+j][0];
                 mixedBoard[i+j][0] = mixedBoard[i+j][2];
@@ -41,7 +41,7 @@ class SudokuBoardMixer {
         temp2.solveBoard();
 
         //Transposing whole grid
-        for (int i = 0; i < SIZE / 3; i++) {
+        for (int i = 0; i < SIZE / 3; ++i) {
             for (int j = 0; j < 9; j += 3) {
                 finalGrid[i][j] = mixedBoard[j][i];
             }

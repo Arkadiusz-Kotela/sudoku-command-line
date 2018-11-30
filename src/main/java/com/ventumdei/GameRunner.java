@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 import static com.ventumdei.BoardConstants.SIZE;
 
-public class GameRunner {
+class GameRunner {
     private SudokuProcessor processor = new SudokuProcessor();
     private static int[][] puzzlesToSolve;
     private Scanner sc = new Scanner(System.in);
     private int rowIndex = 0, columnIndex = 0, number = 0;
 
-    public static int[][] getPuzzlesToSolve() {
+    static int[][] getPuzzlesToSolve() {
         return puzzlesToSolve;
     }
 
@@ -27,7 +27,7 @@ public class GameRunner {
         return false;
     }
 
-    boolean move() {
+    private boolean move() {
         do {
             questions();
 
@@ -80,8 +80,8 @@ public class GameRunner {
 
 
     private boolean checkEmpties(int[][] board) {
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
+        for (int i = 0; i < SIZE; ++i) {
+            for (int j = 0; j < SIZE; ++j) {
                 if (board[i][j] == 0) return false;
             }
         }
